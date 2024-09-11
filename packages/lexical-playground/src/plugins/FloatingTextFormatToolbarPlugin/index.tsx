@@ -55,7 +55,7 @@ function TextFormatFloatingToolbar({
   isUnderline: boolean;
 }): JSX.Element {
   const popupCharStylesEditorRef = useRef<HTMLDivElement | null>(null);
-
+  editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'bold');
   const insertLink = useCallback(() => {
     if (!isLink) {
       editor.dispatchCommand(TOGGLE_LINK_COMMAND, 'https://');
@@ -273,7 +273,7 @@ function useFloatingTextFormatToolbar(
 ): JSX.Element | null {
   const [isText, setIsText] = useState(false);
   const [isLink, setIsLink] = useState(false);
-  const [isBold, setIsBold] = useState(false);
+  const [isBold, setIsBold] = useState(true);
   const [isItalic, setIsItalic] = useState(false);
   const [isUnderline, setIsUnderline] = useState(false);
   const [isStrikethrough, setIsStrikethrough] = useState(false);

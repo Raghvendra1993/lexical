@@ -955,7 +955,7 @@ export default function CommentPlugin({
           />,
           document.body,
         )}
-      {createPortal(
+      {/* {createPortal(
         <Button
           className={`CommentPlugin_ShowCommentsButton ${
             showComments ? 'active' : ''
@@ -965,7 +965,7 @@ export default function CommentPlugin({
           <i className="comments" />
         </Button>,
         document.body,
-      )}
+      )} */}
       {showComments &&
         createPortal(
           <CommentsPanel

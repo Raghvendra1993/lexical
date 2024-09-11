@@ -526,13 +526,13 @@ export default function ToolbarPlugin({
   const [selectedElementKey, setSelectedElementKey] = useState<NodeKey | null>(
     null,
   );
-  const [fontSize, setFontSize] = useState<string>('15px');
+  const [fontSize, setFontSize] = useState<string>('16px');
   const [fontColor, setFontColor] = useState<string>('#000');
   const [bgColor, setBgColor] = useState<string>('#fff');
   const [fontFamily, setFontFamily] = useState<string>('Arial');
   const [elementFormat, setElementFormat] = useState<ElementFormatType>('left');
   const [isLink, setIsLink] = useState(false);
-  const [isBold, setIsBold] = useState(false);
+  const [isBold, setIsBold] = useState(true);
   const [isItalic, setIsItalic] = useState(false);
   const [isUnderline, setIsUnderline] = useState(false);
   const [isStrikethrough, setIsStrikethrough] = useState(false);
@@ -621,7 +621,7 @@ export default function ToolbarPlugin({
       }
       // Handle buttons
       setFontSize(
-        $getSelectionStyleValueForProperty(selection, 'font-size', '15px'),
+        $getSelectionStyleValueForProperty(selection, 'font-size', '16px'),
       );
       setFontColor(
         $getSelectionStyleValueForProperty(selection, 'color', '#000'),
@@ -657,6 +657,7 @@ export default function ToolbarPlugin({
   }, [activeEditor]);
 
   useEffect(() => {
+    editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'bold');
     return editor.registerCommand(
       SELECTION_CHANGE_COMMAND,
       (_payload, newEditor) => {

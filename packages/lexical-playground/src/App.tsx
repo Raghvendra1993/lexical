@@ -18,7 +18,7 @@ import {SettingsContext, useSettings} from './context/SettingsContext';
 import {SharedAutocompleteContext} from './context/SharedAutocompleteContext';
 import {SharedHistoryContext} from './context/SharedHistoryContext';
 import Editor from './Editor';
-import logo from './images/logo.svg';
+import logo from './images/codoxy.png';
 import PlaygroundNodes from './nodes/PlaygroundNodes';
 import DocsPlugin from './plugins/DocsPlugin';
 import PasteLogPlugin from './plugins/PasteLogPlugin';
@@ -137,8 +137,12 @@ function App(): JSX.Element {
         <TableContext>
           <SharedAutocompleteContext>
             <header>
-              <a href="https://lexical.dev" target="_blank" rel="noreferrer">
-                <img src={logo} alt="Lexical Logo" />
+              <a href="">
+                <img
+                  src={logo}
+                  alt="Codoxy Logo"
+                  style={{borderRadius: '5px'}}
+                />
               </a>
             </header>
             <div className="editor-shell">
@@ -161,7 +165,7 @@ export default function PlaygroundApp(): JSX.Element {
   return (
     <SettingsContext>
       <App />
-      <a
+      {/* <a
         href="https://github.com/facebook/lexical/tree/main/packages/lexical-playground"
         className="github-corner"
         aria-label="View source on GitHub">
@@ -194,7 +198,7 @@ export default function PlaygroundApp(): JSX.Element {
             className="octo-body"
           />
         </svg>
-      </a>
+      </a> */}
     </SettingsContext>
   );
 }

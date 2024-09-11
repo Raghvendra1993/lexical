@@ -13,10 +13,8 @@ import {useEffect, useState} from 'react';
 
 export default function PasteLogPlugin(): JSX.Element {
   const [editor] = useLexicalComposerContext();
-  const [isActive, setIsActive] = useState(false);
-  const [lastClipboardData, setLastClipboardData] = useState<string | null>(
-    null,
-  );
+  const [isActive] = useState(false);
+  const [, setLastClipboardData] = useState<string | null>(null);
   useEffect(() => {
     if (isActive) {
       return editor.registerCommand(
@@ -38,7 +36,7 @@ export default function PasteLogPlugin(): JSX.Element {
   }, [editor, isActive]);
   return (
     <>
-      <button
+      {/* <button
         id="paste-log-button"
         className={`editor-dev-button ${isActive ? 'active' : ''}`}
         onClick={() => {
@@ -48,7 +46,7 @@ export default function PasteLogPlugin(): JSX.Element {
       />
       {isActive && lastClipboardData !== null ? (
         <pre>{lastClipboardData}</pre>
-      ) : null}
+      ) : null} */}
     </>
   );
 }
